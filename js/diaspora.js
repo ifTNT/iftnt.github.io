@@ -18,6 +18,7 @@ var Diaspora = {
             timeout: 10000,
             success: function(data) {
                 f(data);
+                setTimeout(()=>{MathJax.Hub.Queue(["Typeset",MathJax.Hub]);}, 100);
                 xhrUrl = '';
             },
             error: function(a, b, c) {
@@ -338,7 +339,7 @@ $(function() {
                         tag.data('page', parseInt(tag.data('page')) + 1)
                     } else {
                         $('#pager').remove()
-                    }
+                    }MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
                     var tempScrollTop = $(window).scrollTop();
                     $('#primary').append($(data).find('.post'))
                     $(window).scrollTop(tempScrollTop + 100);
